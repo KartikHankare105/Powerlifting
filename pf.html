@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powerlifting Competition Tracker</title>
+    <link rel="stylesheet" href="stylepf.css">
+</head>
+<body>
+    <div id="registration">
+        <h1>Powerlifting Competition Tracker</h1>
+        <form onsubmit="addLifter(); return false;">
+            <label for="lifterName">Lifter Name:</label>
+            <input type="text" id="lifterName" required>
+            
+            <label for="squatFirst">Squat First Attempt (kg):</label>
+            <input type="number" id="squatFirst" step="0.1" required>
+            
+            <label for="benchFirst">Bench First Attempt (kg):</label>
+            <input type="number" id="benchFirst" step="0.1" required>
+            
+            <label for="deadliftFirst">Deadlift First Attempt (kg):</label>
+            <input type="number" id="deadliftFirst" step="0.1" required>
+            
+            <button type="submit">Add Lifter</button>
+        </form>
+        <h2>Registered Lifters:</h2>
+        <ul id="liftersList"></ul>
+        <button onclick="startRounds()">Start Competition</button>
+    </div>
+
+    <div id="rounds" style="display: none;">
+        <h1 id="roundTitle"></h1>
+        <table id="roundTable">
+            <thead>
+                <tr>
+                    <th>Lifter</th>
+                    <th>Attempt 1</th>
+                    <th>Attempt 2</th>
+                    <th>Attempt 3</th>
+                    <th>Best Lift (kg)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button onclick="nextRound()">Next Round</button>
+    </div>
+
+    <div id="results" style="display: none;">
+        <h1>Final Results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lifter</th>
+                    <th>Best Squat (kg)</th>
+                    <th>Best Bench (kg)</th>
+                    <th>Best Deadlift (kg)</th>
+                    <th>Total SBD (kg)</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+        </table>
+    </div>
+
+    <script src="scriptpf.js"></script>
+</body>
+</html>
